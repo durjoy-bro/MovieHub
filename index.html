@@ -1,154 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>Free Net Warriors</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: 'Courier New', monospace;
-      overflow-x: hidden;
-    }
-
-    .matrix-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.ibb.co/tKtqFvj/matrix-bg.gif') repeat;
-      opacity: 0.06;
-      z-index: 0;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 50px 20px;
-      text-align: center;
-      color: #00ff00;
-    }
-
-    .glow {
-      font-size: 2.8em;
-      font-weight: bold;
-      color: #00ff00;
-      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; }
-      50% { text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; }
-      100% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; }
-    }
-
-    .typewriter {
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #00ff00;
-      overflow: hidden;
-      border-right: 2px solid #00ff00;
-      white-space: nowrap;
-      margin: 20px auto;
-      letter-spacing: .10em;
-      animation: typing 4s steps(40, end), blink .8s step-end infinite;
-      width: 0;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: #00ff00; }
-    }
-
-    .section {
-      background: rgba(0, 255, 0, 0.06);
-      border: 1px solid #00ff00;
-      border-radius: 10px;
-      margin: 25px auto;
-      padding: 20px;
-      max-width: 750px;
-      font-weight: bold;
-      font-size: 1.1em;
-      color: #00ff00;
-      box-shadow: 0 0 12px #00ff00;
-      animation: fadeInUp 2s ease forwards;
-      opacity: 0;
-    }
-
-    .section:nth-child(3) { animation-delay: 1s; }
-    .section:nth-child(4) { animation-delay: 2s; }
-    .section:nth-child(5) { animation-delay: 3s; }
-
-    @keyframes fadeInUp {
-      0% { transform: translateY(30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    .button {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 15px 35px;
-      background-color: transparent;
-      color: #00ff00;
-      font-weight: bold;
-      font-size: 1.2em;
-      border: 2px solid #00ff00;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 0 20px #00ff00;
-      transition: all 0.4s ease;
-      animation: bounce 2s infinite;
-    }
-
-    .button:hover {
-      background-color: #00ff00;
-      color: #000;
-      transform: scale(1.1);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - লগ ইন বা সাইন আপ করুন</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 980px;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        .left-section {
+            flex: 1;
+            padding-right: 32px;
+        }
+        
+        .logo {
+            color: #1877f2;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            line-height: 28px;
+            color: #1c1e21;
+        }
+        
+        .right-section {
+            flex: 1;
+            max-width: 396px;
+        }
+        
+        .login-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            padding: 20px;
+            margin-bottom: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 17px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            color: #1d2129;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #1877f2;
+            outline: none;
+        }
+        
+        .login-button {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            line-height: 48px;
+            padding: 0 16px;
+            width: 100%;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+        
+        .login-button:hover {
+            background-color: #166fe5;
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .forgot-password a {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        .divider {
+            align-items: center;
+            border-bottom: 1px solid #dadde1;
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .create-account {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .create-button {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            line-height: 48px;
+            padding: 0 16px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .create-button:hover {
+            background-color: #36a420;
+        }
+        
+        .create-page {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 28px;
+        }
+        
+        .create-page a {
+            color: #1c1e21;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .create-page a:hover {text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #f02849;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .left-section {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .tagline {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">facebook</div>
+            <div class="tagline">Facebook-এ আপনাকে স্বাগতম। বন্ধু এবং পরিবারের সাথে সংযুক্ত হোন এবং আকর্ষণীয় বিষয়বস্তু শেয়ার করুন।</div>
+        </div>
+        
+        <div class="right-section">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="email" placeholder="ইমেইল অথবা ফোন নম্বর" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="পাসওয়ার্ড" required>
+                </div>
+                
+                <button type="submit" class="login-button">লগ ইন করুন</button>
+                
+                <div class="error-message" id="errorMessage">ইমেইল/ফোন নম্বর বা পাসওয়ার্ড ভুল হয়েছে</div>
+                
+                <div class="forgot-password">
+                    <a href="#">পাসওয়ার্ড ভুলে গেছেন?</a>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="create-account">
+                    <button type="button" class="create-button">নতুন অ্যাকাউন্ট তৈরি করুন</button>
+                </div>
+            </form>
+            
+            <div class="create-page">
+                <a href="#">একটি পেজ তৈরি করুন</a> সেলিব্রিটি, ব্যান্ড বা ব্যবসার জন্য।
+            </div>
+        </div>
+    </div>
 
-<div class="matrix-bg"></div>
-
-<div class="container">
-  <div class="glow">⚡ SUPER FAST INTERNET HUB ⚡</div>
-  <div class="typewriter">JOIN THE FREE NET WARRIORS NOW...</div>
-
-  <div class="section">
-    🔓 Bypass Tricks | VPN | Free Net<br>
-    📶 Support: Grameenphone | Robi | Airtel<br>
-    📺 YouTube Pack Bypass Trick<br>
-    🌐 SSH | V2Ray | Ghost | UDP | DNS<br>
-    ⚙️ Buffer-Free Streaming & Super Fast Download
-  </div>
-
-  <div class="section">
-    🎮 Play like a Pro – Gaming Ping 60-70ms Only!<br>
-    🔫 Free Fire | PUBG | COD Lag-Free Gaming
-  </div>
-
-  <div class="section">
-    ✅ Daily Update<br>
-    ✅ 100% Working Config<br>
-    ✅ Super Speed Network<br>
-    ✅ Active Support & Community
-  </div>
-
-  <a class="button" href="https://t.me/+H9aLsJvnaqwzNzJl" target="_blank">Click to Join Now</a>
-</div>
-
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // এখানে সাধারণত সার্ভারে ভেরিফিকেশন করা হবে
+            // এই উদাহরণে শুধু একটি সাধারণ চেক করা হচ্ছে
+            if (email === "" || password === "") {
+                errorMessage.textContent = "ইমেইল/ফোন নম্বর এবং পাসওয়ার্ড প্রয়োজন";
+                errorMessage.style.display = 'block';
+            } else if (email === "user@example.com" && password === "password") {
+                // সফল লগইন
+                errorMessage.style.display = 'none';
+                alert('সফলভাবে লগইন হয়েছে!');
+                // এখানে সাধারণত ব্যবহারকারীকে অন্য পেজে রিডাইরেক্ট করা হবে
+            } else {
+                errorMessage.textContent = "ইমেইল/ফোন নম্বর বা পাসওয়ার্ড ভুল হয়েছে";
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        document.querySelector('.create-button').addEventListener('click', function() {
+            alert('নতুন অ্যাকাউন্ট তৈরি করার ফিচারটি শীঘ্রই আসছে!');
+        });
+    </script>
 </body>
 </html>
